@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Printers</title>
+    <!--    CSS Stylesheets, bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--   Google fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<button id="hide-divs">Hide Divs</button>
+
+<p><label for="new-colour">What colour should the blue box be?</label>
+    <input type="text" id="new-colour"></p>
+<button id="submit-colour">Submit colour</button>
+
+
+
+<div class="page-container">
+
+
+    <div class="container-fluid blackbox bg-dark">
+        <div class="row">
+            <div class="bg-danger col-3 box redbox">
+                <p>Red box</p>
+            </div>
+            <div class="bg-primary col-3 box bluebox">
+                <p>Blue box</p>
+            </div>
+            <div class="bg-success col-6 box greenbox">
+                <p>Green box</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid black bg-dark mt-3">
+        <div class="row">
+            <div class="bg-danger col-8 box redbox">
+                <p>Red box</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--    JQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="js/testing.js" charset="utf-8"></script>
+
+</body>
+</html>
