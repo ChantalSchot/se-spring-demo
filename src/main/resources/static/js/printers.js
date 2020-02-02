@@ -1,7 +1,7 @@
 const api = "http://localhost:8080/api/printers";
 
 
-// Requests:
+/* ===================== A J A X ===================== */
 
 // GET PRINTERLIST
 function getPrinterList() {
@@ -42,8 +42,8 @@ function getPrinter() {
     });
 };
 
-/* ===================== A J A X ===================== */
-// POST PRINTER
+
+// POST NEW PRINTER
 function postData() {
     var type = $("#type").val();
     var price = $("#price").val();
@@ -77,6 +77,25 @@ function postData() {
 
 // DELETE PRINTER
 
+function deletePrinter() {
+    var id = +$("#printerId").val();
+    console.log("Deleting printer with id " + id);
+
+
+    $.ajax({
+        url: api + "/" + id,
+        type: "delete",
+        dataType: "json",
+        contentType: "application/json",
+        success: function (result) {
+            showList(result);
+            $("#printerId").val("")
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+};
 
 // PUT PRINTER (edit attributes)
 
@@ -84,6 +103,7 @@ function postData() {
 
 
 /* ===================== FRONT END OUTPUT ===================== */
+// Show full list of printers
 function showList(result){
     console.log("Current printers: " + result);
     let list = "";
@@ -93,6 +113,7 @@ function showList(result){
     $("#printer-list").html(list);
 };
 
+// Show printer with ID number
 function showPrinter(result){
     console.log("Current printer: " + result);
     let printer = "Printer id: " + result.id +  "<br>Printer type: " + result.type + "<br> Printer price: $" + result.price + "<br><br>";
@@ -103,8 +124,6 @@ function showPrinter(result){
 
 /* ===================== CLICK FUNCTIONS ===================== */
 
-$("#post-printer").click(postData);
-
 $("#get-printers").click(function () {
         console.log($("#printerId").val());
     if ( +$("#printerId").val() === 0) {
@@ -114,3 +133,7 @@ $("#get-printers").click(function () {
         getPrinter();
     }
 });
+
+$("#post-printer").click(postData);
+
+$("#delete-printer").click(deletePrinter);

@@ -1,10 +1,8 @@
 package nl.capgemini.sespringdemo.persistence;
 
 import nl.capgemini.sespringdemo.model.Printer;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -57,11 +55,22 @@ public class PrinterRepository {
 		Optional<Printer> optionalPrinter = findById(id);
 
 		if(optionalPrinter.isPresent()) {
-			content.remove(optionalPrinter);
+			Printer printer = optionalPrinter.get();
+			this.content.remove(printer);
 
 			return true;
 		} else {
 			return false;
 		}
 	}
+	
+//	public List<Printer> deleteById(long id) {
+//		Optional<Printer> optionalPrinter = findById(id);
+//
+//		if(optionalPrinter.isPresent()) {
+//			content.remove(optionalPrinter);
+//		}
+//		return this.content;
+//	}
+
 }

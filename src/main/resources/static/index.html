@@ -14,9 +14,8 @@
 </head>
 <body>
 
+<!-- Printer fields -->
 <div class="container">
-
-
         <div id="printer-list"></div>
 
         <div class="form-group">
@@ -24,7 +23,8 @@
             <input type="number" id="printerId" name="printerId" required>
         </div>
 
-        <button id="get-printers">Show printer(s)</button><hr>
+        <button id="get-printers">Show printer(s)</button>
+        <button id="delete-printer">Delete printer</button><hr>
 
     <form class="needs-validation">
         <div class="form-group">
@@ -33,22 +33,21 @@
                 <input type="text" id="type" name="type" required>
 
                 <label for="price">Price: </label>
-                <input type="number" id="price" name="price" required min="0" formnovalidate>
+                <input type="number" id="price" name="price" required min="0">
 
             </div>
         </div>
-
-    <button id="post-printer">Add new printer</button>
-
+        <button id="post-printer">Add new printer</button>
+    </form>
 </div>
 
-
+<!-- Datatable -->
 <div class="container-table mx-auto my-5">
-    <table id="dataTable" class="display mx-auto">
+    <table id="dataTable" class="display">
     </table>
 
     <button id="fetchList" class="btn btn-primary">Fetch</button>
-<button id="clearList" class="btn btn-warning">Clear</button>
+    <button id="clearList" class="btn btn-warning">Clear</button>
 </div>
 
 

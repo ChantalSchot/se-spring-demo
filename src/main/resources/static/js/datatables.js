@@ -8,6 +8,7 @@ var table;
 
 $(document).ready(function() {
     initDataTable();
+
     let api = "http://localhost:8080/api/printers";
 
     getData(api);
@@ -21,10 +22,8 @@ $(document).ready(function() {
     });
 
     $("#dataTable").on( 'click', 'tr', function () {
-        alert( table.row(this).data() );
+        console.log("Selected printer: " + table.row(this).data().type + ", id: " + table.row(this).data().id + ", price " + table.row(this).data().price);
     } );
-
-
 });
 
 // Initialise the datatable
@@ -71,7 +70,7 @@ function getData(api) {
 
 $("#dataTable").on('click', 'tr', function () {
     $("#dataTable").DataTable().row(this).data();
-    alert( 'You clicked on '+ data[0] +'\'s row' );
+//    alert( 'You clicked on '+ data[0] +'\'s row' );
 } );
 
 

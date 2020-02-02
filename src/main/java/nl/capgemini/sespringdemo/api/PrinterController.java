@@ -3,11 +3,8 @@ package nl.capgemini.sespringdemo.api;
 import nl.capgemini.sespringdemo.model.Printer;
 import nl.capgemini.sespringdemo.persistence.PrinterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -28,7 +25,7 @@ public class PrinterController {
 	}
 
 	@PostMapping
-	public Printer create(@RequestBody  Printer printer) { // here, the default constructor is invoked.
+	public Printer create(@RequestBody Printer printer) { // here, the default constructor is invoked.
 		return this.repository.save(printer);
 	}
 
@@ -71,8 +68,6 @@ public class PrinterController {
 			return ResponseEntity.notFound().build();
 		}
 	}
-
-
 
 
 
